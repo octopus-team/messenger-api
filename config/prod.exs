@@ -15,7 +15,7 @@ config :messenger, Messenger.Endpoint,
   http: [port: {:system, "PORT"}],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   url: [host: "octopus_messenger_api.herokuapp.com", port: 443],
-  secret_key_base: System.get_env("OCTOPUS_MESSENGER_API_SECRET_KEY_BASE"),
+  secret_key_base: System.get_env("OCTOPUS_MESSENGER_API_SECRET_KEY_BASE")
 
 config :messenger, Messenger.Repo
   adapter: Ecto.Adapters.Postgres,
