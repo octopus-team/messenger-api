@@ -14,6 +14,15 @@ config :messenger, Messenger.Endpoint,
   pubsub: [name: Messenger.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "Messenger",
+  ttl: { 30, :days },
+  verify_issuer: true, # optional
+  secret_key: System.get_env("GUARDIAN_SECRET") || "amVG0OoEdCRTmm30Uv6rwXnhrIfLG7Ld/G9ad+CzQqn9xNhwCMTFBqgxCiRpRAU5",
+  serializer: Messenger.GuardianSerializer
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

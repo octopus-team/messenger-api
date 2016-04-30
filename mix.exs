@@ -30,12 +30,15 @@ defmodule Messenger.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.1.4"},
-     {:postgrex, ">= 0.0.0"},
-     {:phoenix_ecto, "~> 2.0"},
-     {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"},
-     {:cors_plug, "~> 1.1"},]
+    [
+      {:phoenix, "~> 1.1.4"},
+      {:postgrex, ">= 0.0.0"},
+      {:phoenix_ecto, "~> 2.0"},
+      {:gettext, "~> 0.9"},
+      {:cowboy, "~> 1.0"},
+      {:cors_plug, "~> 1.1"},
+      {:guardian, "~> 0.10.0"},
+    ]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
