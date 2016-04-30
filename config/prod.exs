@@ -13,9 +13,9 @@ use Mix.Config
 # which you typically run after static files are built.
 config :messenger, Messenger.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]]
+  url: [host: "octopus_messenger_api.herokuapp.com", port: 443],
   secret_key_base: System.get_env("OCTOPUS_MESSENGER_API_SECRET_KEY_BASE"),
-  cache_static_manifest: "priv/static/manifest.json"
 
 config :messenger, Messenger.Repo
   adapter: Ecto.Adapters.Postgres,
