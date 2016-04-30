@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: SBgvu5naL6pJrV13wP/4Bslvpl9iaYl2YJDm+C1YT7JYL8Qfb/jXCbcKagGpV/nSVar2ctXPBk3qAWIA0GDJcuGsa9htUCvxPsiVB6o1VwveTwRl9VCPt73JP86s3my9P4ui9wlclLFyfoMH9VTNajFP4BhHY55XpS4rAfk8gxPeq9ntrGFCCZznuTAGbYTQlCv1w5O88BE+bLAGSaZgx6qZ6+Tl+BTZBtfjY9qMisWuWLtuK1+z5rjnqVVttQBmwYULYfVy9ZJWee1aKBluVSCESsdYuf9Dwa/sN6GdKCVnaXgUiJ7gYF2gkblVfHB6RB0pGDYv20qv2yza2pxf8HeDmJP+StaP8AVnysnCIGzhTdNEE6tHmjv/IguZfuM/4DpXFxg4t2+/F3+x5NEc1oJh8J5zYacKqeAYBkozIMQzxVF1HmK4eD/x89hUPsV1zAcDIYd/YQ0iefXiyk+Zb3ugNsOsXRfxx1ZWz5Qu2NKWuLuL60T2TM4MO1ptHWxLQ30zDJOgdQwrmFJ/4+T9IHwP+dSPoTza+Vt/Hpn6FJBFnJeAH1na9WkFDX46+VB0SHtVedK5Cq+jT4aQAyNvUdzqHUygLR1QScoJCiO8WKHvdBv/eoMnX22RHwBGmk/6vqm2R855aGHpCyv+rU4nLQZtLcvNoqsrKr7OJwuK1rc=
+  app: octopus-messenger-api
+  on:
+    repo: octopus-team/messenger-api
